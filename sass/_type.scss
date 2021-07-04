@@ -1,0 +1,13 @@
+.type{
+  list-style: none;
+
+  &__list{
+    font-weight: 300;
+    font-size: 15px;
+    text-shadow: -1.5px 1px red;
+
+    &:not(:first-child){
+      margin-top: 5px;
+    }
+  }
+}

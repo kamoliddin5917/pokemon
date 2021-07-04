@@ -1,0 +1,22 @@
+.karusel{
+  margin-top: 10px;
+  height: 400px;
+
+  & .container{
+    max-width: 1100px;
+    height: 100%;
+    text-align: center;
+
+    border-radius: 20px;
+    padding: 20px 0;
+
+    animation: karusel 7s linear infinite;
+  }
+
+  &__img{
+    display: inline-block;
+    width: 60%;
+    height: 100%;
+    border-radius: 20px;
+  }
+}

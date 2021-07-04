@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./sass/main.css">
+  <title>POKEMON</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <form class="form js-form">
+      <select class="form__select form__select-type js-select__type">
+        <option class="form__option" value="all">All</option>
+      </select>
+
+      <input class="form__input js-search" type="search" placeholder="Search">
+
+      <select class="form__select form__select-sort js-select__sort">
+        <option class="form__option" value="0">Aa-Zz</option>
+        <option class="form__option" value="1">Zz-Aa</option>
+        <option class="form__option" value="2">Small-Big</option>
+        <option class="form__option" value="3">Big-Small</option>
+        <option class="form__option" value="4">Heavy-Light</option>
+        <option class="form__option" value="5">Light-Heavy</option>
+      </select>
+
+      <button class="btn" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <section class="karusel">
+    <div class="container">
+      <img class="karusel__img" alt="rasm">
+    </div>
+  </section>
+
+  <section class="pokemon">
+    <div class="container">
+      <ul class="box js-box"></ul>
+    </div>
+  </section>
+  <script src="./javascript/pokemons.js"></script>
+  <script src="./javascript/script.js"></script>
+</body>
+
+</html>

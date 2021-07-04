@@ -1,0 +1,48 @@
+.form{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  &__select{
+    width: 200px;
+    display: inline-block;
+    padding: 10px 0 10px 10px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: #fff;
+    color: inherit;
+    cursor: pointer;
+
+    &:hover{
+    box-shadow: 0 0 20px #fff;
+  }
+  }
+  &__option{
+    background-color: red;
+  }
+
+  &__input{
+    display: inline-block;
+    width: 550px;
+    padding: 10px;
+    font-size: 20px;
+    color: inherit;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover{
+    box-shadow: 0 0 20px #fff;
+   }
+
+   &::placeholder{
+      font-size: 20px;
+      color: inherit;
+      opacity: .5;
+   }
+  }
+}
