@@ -6,13 +6,19 @@ var mySearchInput = findEl(".js-search");
 var mySelectSort = findEl(".js-select__sort");
 var myUlBox = findEl(".js-box");
 
+var myModal = findEl(".js-modal");
+var myModalBtn = findEl(".js-modal__btn");
+var myModalH1 = findEl(".js-modal__h1");
+var myModalUl = findEl(".js-modal__ol");
+var myModalP = findEl(".js-modal__p");
+
 // Tag yaratadigon function
 var creatEl = (tag) => document.createElement(tag);
 
 // Arraydigi Type sini tekshiradigin functionni arrayi
 var type = [];
 
-// Har bitta kegan elementga li yaratib li ni ichiga img,p,span*2,ul yaratib ichiga soladi 
+// Har bitta kegan elementga li yaratib li ni ichiga img,p,span*2,ul yaratib ichiga soladi
 var boxList = (multik) => {
   var newLiBox = creatEl("li");
   var newImg = creatEl("img");
@@ -21,6 +27,8 @@ var boxList = (multik) => {
   var newSpanYear = creatEl("span");
 
   var newUlType = creatEl("ul");
+
+  var newModalBtn = creatEl("button");
 
   var birthDate =
     new Date(multik.birth_date).getDay() +
@@ -35,12 +43,17 @@ var boxList = (multik) => {
   newSpanWeight.textContent = multik.weight;
   newSpanYear.textContent = birthDate;
 
+  newModalBtn.textContent = "More";
+  newModalBtn.dataset.id = multik.id;
+
   newLiBox.className = "box__list";
   newImg.className = "box__img";
   newP.className = "box__titel";
   newSpanWeight.className = "box__weight";
   newSpanYear.className = "box__year";
   newUlType.className = "type";
+
+  newModalBtn.className = "btn btn--box";
 
   // Box ichida li yaratib uni ul ga soladi
   var creatType = (multik) => {
@@ -53,7 +66,7 @@ var boxList = (multik) => {
   };
   creatType(multik);
 
-// Type select i ichida option yaratib typega tenglab selecti ichiga soladi
+  // Type select i ichida option yaratib typega tenglab selecti ichiga soladi
   var selectType = (multik) => {
     multik.type.forEach((typ) => {
       if (!type.includes(typ)) {
@@ -68,8 +81,48 @@ var boxList = (multik) => {
   };
   selectType(multik);
 
-  newLiBox.append(newImg, newP, newSpanWeight, newSpanYear, newUlType);
+  newLiBox.append(
+    newImg,
+    newP,
+    newSpanWeight,
+    newSpanYear,
+    newUlType,
+    newModalBtn
+  );
   myUlBox.append(newLiBox);
+
+  // Box__listdigi button click bo'ganda modal ochiladi va u pokempnni zaif tomonini, bo'yini chiqazadi (ma'lumoti)
+  var modalOpen = (event) => {
+    myModalUl.innerHTML = "";
+
+    var kino = findMultik(event.target.dataset.id);
+
+    kino.weaknesses.forEach((weak) => {
+      var newModalLi = creatEl("li");
+      newModalLi.textContent = weak;
+      newModalLi.className = "modal__list";
+      myModalUl.append(newModalLi);
+    });
+
+    myModalH1.textContent = kino.name;
+    myModalP.textContent = kino.height;
+
+    myModal.classList.add("modal__open");
+  };
+  newModalBtn.addEventListener("click", modalOpen);
+};
+
+// Modal yoki Modaldigi button click bo'ganda modal yopiladi
+var modalClosed = (event) => {
+  if (event.target === myModal || event.target === myModalBtn) {
+    myModal.classList.remove("modal__open");
+  }
+};
+myModal.addEventListener("click", modalClosed);
+
+//  li digi btn bosilganda olingan ID orqali pokemonni topib ushatga qaytarvoradi
+var findMultik = (id) => {
+  return pokemons.find((pokemon) => pokemon.id == id);
 };
 
 // Berilgan arrayi aylanib har bitta element boxList() functionga beriladi

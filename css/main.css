@@ -53,6 +53,22 @@ body {
   left: 0;
   z-index: -1;
 }
+.btn--modal {
+  padding: 5px;
+  font-size: 30px;
+  line-height: 16px;
+  border-radius: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+}
+.btn--box {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+}
 
 .karusel {
   margin-top: 10px;
@@ -89,6 +105,8 @@ body {
   border-radius: 10px;
   margin-bottom: 25px;
   transition: all 0.7s;
+  padding-bottom: 60px;
+  position: relative;
 }
 .box__list:hover {
   background-color: gold;
@@ -284,4 +302,51 @@ body {
   100% {
     background-image: radial-gradient(#39abec, yellow, #1dc3ec);
   }
+}
+.modal {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(255, 215, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+}
+.modal__body {
+  box-shadow: -5px 10px 0 rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  width: 400px;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+.modal__open {
+  display: flex;
+}
+.modal__box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.modal__list, .modal__text {
+  text-align: start;
+  border: 1px solid red;
+  padding: 4px 10px;
+  margin-top: 5px;
+  background-color: black;
+  list-style-position: inside;
+  box-shadow: -4px 4px rgba(0, 0, 0, 0.6);
+}
+.modal__h1 {
+  text-shadow: -2px 2px red;
+}
+.modal__h3 {
+  text-shadow: -1.5px 1.5px black;
+  box-shadow: -4px 4px rgba(0, 0, 0, 0.6);
+  background-color: red;
+  padding: 5px;
 }/*# sourceMappingURL=main.css.map */

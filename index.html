@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./sass/main.css">
+  <link rel="stylesheet" href="./css/main.css">
   <title>POKEMON</title>
 </head>
 
@@ -47,6 +47,25 @@
       <ul class="box js-box"></ul>
     </div>
   </section>
+
+  <div class="modal js-modal">
+    <div class="modal__body">
+      <button class="btn btn--modal js-modal__btn">&times;</button>
+      <h1 class="modal__h1 js-modal__h1">DATABASE</h1>
+      <div class="modal__box">
+        <div class="modal__left">
+          <h3 class="modal__h3">Pokemon Weak Nesses</h3>
+          <ol class="modal__ol js-modal__ol"></ol>
+        </div>
+
+        <div class="modal__right">
+          <h3 class="modal__h3">Height</h3>
+          <p class="modal__text js-modal__p"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="./javascript/pokemons.js"></script>
   <script src="./javascript/script.js"></script>
 </body>
